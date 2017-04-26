@@ -1,0 +1,291 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>Me through Movies!</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Me Through Movies</a>
+          </div>
+        </div>
+      </div>
+      </div>
+     
+      <div class="jumbotron">
+          <h1 class="display-3">Welcome to Me through Movies!</h1>
+          <p>Below is a list containing my favorite movie for that year of my life from birth to present. The list is ordered in ascending order by age. You can watch the trailer for each film by clicking on its image.</p>
+          <p>I hope that as you go through this list you enjoy the trailers of the films that resonated with me in each year of my life.</p>
+          <p>Cheers,<br>-Zach</br></p>
+      </div>   
+      
+    <div class="container">
+      
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="0BykeVld018" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/ad/The_Land_Before_Time_poster.jpg" width="220" height="342">
+    <h2>The Land Before Time</h2>
+    <h3><em>(Age: 0)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="c5Qph47c2uE" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/9/91/Robinhood_1973_poster.png" width="220" height="342">
+    <h2>Robin Hood</h2>
+    <h3><em>(Age: 1)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="KnL0rYFKuL4" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/d/d8/SwordintheStonePoster.JPG" width="220" height="342">
+    <h2>The Sword in the Stone</h2>
+    <h3><em>(Age: 2)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="LpKA9n-75tQ" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/1/12/Fantasia-poster-1940.jpg" width="220" height="342">
+    <h2>Fantasia</h2>
+    <h3><em>(Age: 3)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="cISmv0IGoQQ" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/8/84/The_Secret_of_NIMH.jpg" width="220" height="342">
+    <h2>The Secret of Nimh</h2>
+    <h3><em>(Age: 4)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="bPrlaJZMAe0" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/9/9b/RockADoodle.JPG" width="220" height="342">
+    <h2>Rock-a-Doodle</h2>
+    <h3><em>(Age: 5)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="GLolvr7dOV4" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/4/42/Ferngully.jpg" width="220" height="342">
+    <h2>FernGully: The Last Rainforest</h2>
+    <h3><em>(Age: 6)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="8qrB9I3DM80" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/9/9a/The_nightmare_before_christmas_poster.jpg" width="220" height="342">
+    <h2>The Nightmare Before Christmas</h2>
+    <h3><em>(Age: 7)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="oKNy-MWjkcU" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/1/14/Space_jam.jpg" width="220" height="342">
+    <h2>Space Jam</h2>
+    <h3><em>(Age: 8)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="RxrvaneULkE" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/The_Lost_World_%E2%80%93_Jurassic_Park_poster.jpg" width="220" height="342">
+    <h2>The Lost World: Jurassic Park</h2>
+    <h3><em>(Age: 9)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="pxOxUpWE2n8" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/5/59/Scooby-doo-on-zombie-island.jpg" width="220" height="342">
+    <h2>Scooby-Doo on Zombie Island</h2>
+    <h3><em>(Age: 10)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="bD7bpG-zDJQ" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/4/40/Star_Wars_Phantom_Menace_poster.jpg" width="220" height="342">
+    <h2>Star Wars: Episode I - The Phantom Menace</h2>
+    <h3><em>(Age: 11)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="0BLZbrLogTo" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/8/8d/Gladiator_ver1.jpg" width="220" height="342">
+    <h2>Gladiator</h2>
+    <h3><em>(Age: 12)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="eKSB0gXl9dw" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.impawards.com/2001/posters/harry_potter_and_the_sorcerers_stone_ver4.jpg" width="220" height="342">
+    <h2>Harry Potter and the Sorcerer's Stone</h2>
+    <h3><em>(Age: 13)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="Ki4haFrqSrw" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/c/ce/Green_mile.jpg" width="220" height="342">
+    <h2>The Green Mile</h2>
+    <h3><em>(Age: 14)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="1M38HWM4CTY" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/0/01/Ghostandthedarkness.jpg" width="220" height="342">
+    <h2>Ghosts in the Darkness</h2>
+    <h3><em>(Age: 15)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="SeoX8MZd81E" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/d/db/Eurotrip_movie.jpg" width="220" height="342">
+    <h2>Eurotrip</h2>
+    <h3><em>(Age: 16)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="6hB3S9bIaco" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/8/81/ShawshankRedemptionMoviePoster.jpg" width="220" height="342">
+    <h2>Shawshank Redemption</h2>
+    <h3><em>(Age: 17)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="4ZBJxhjqUgs" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/6/6f/Beerfest_poster.jpg" width="220" height="342">
+    <h2>Beerfest</h2>
+    <h3><em>(Age: 18)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="MPhWl_S8ies" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/1/19/Supertrooper.jpg" width="220" height="342">
+    <h2>Super Troopers</h2>
+    <h3><em>(Age: 19)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="_PZpmTj1Q8Q" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/8/8a/Dark_Knight.jpg" width="220" height="342">
+    <h2>The Dark Knight</h2>
+    <h3><em>(Age: 20)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="pKFUZ10Wmbw" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/2/29/Startrekposter.jpg" width="220" height="342">
+    <h2>Star Trek</h2>
+    <h3><em>(Age: 21)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="yJtot_f-snU" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/8/89/Megamind2010Poster.jpg" width="220" height="342">
+    <h2>Megamind</h2>
+    <h3><em>(Age: 22)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="vU3ZqtbIRPI" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/2/22/Real_Steel_Poster.jpg" width="220" height="342">
+    <h2>Real Steel</h2>
+    <h3><em>(Age: 23)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="THWd2Qtp_mo" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/d/d4/The_Last_Castle_Theatrical.jpg" width="220" height="342">
+    <h2>The Last Castle</h2>
+    <h3><em>(Age: 24)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="oIBtePb-dGY" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/f/f9/Elysium_Poster.jpg" width="220" height="342">
+    <h2>Elysium</h2>
+    <h3><em>(Age: 25)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="8IdMPpKMdcc" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/4/4b/Big_Hero_6_%28film%29_poster.jpg" width="220" height="342">
+    <h2>Big Hero 6</h2>
+    <h3><em>(Age: 26)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="3PkkHsuMrho" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/6/63/MockingjayPart1Poster3.jpg" width="220" height="342">
+    <h2>The Hunger Games: Mockingjay - Part 1</h2>
+    <h3><em>(Age: 27)</em></h3>
+</div>
+
+<div class="col-md-6 col-lg-6 movie-tile text-center" data-trailer-youtube-id="XGk2EfbD_Ps" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/3/31/John_Wick_Chapter_Two.png" width="220" height="342">
+    <h2>John Wick: Chapter 2</h2>
+    <h3><em>(Age: 28)</em></h3>
+</div>
+
+    </div>
+  </body>
+</html>
